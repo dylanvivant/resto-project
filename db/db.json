@@ -1,0 +1,36 @@
+{
+  "users": [
+    {
+      "id": "b766",
+      "name": "anil",
+      "email": "anil@test.com",
+      "password": "anil123",
+      "role": "admin"
+    },
+    {
+      "id": "50e8",
+      "name": "marc",
+      "email": "marc@test.com",
+      "password": "marc+123",
+      "role": "customer"
+    },
+    {
+      "id": "5628",
+      "name": "Dylan",
+      "email": "dylan@test.com",
+      "password": "dylan021"
+    },
+    {
+      "id": "421d",
+      "name": "Bruce",
+      "email": "bruce@test.com",
+      "password": "bruce225"
+    },
+    {
+      "id": "06c9",
+      "name": "MrExemple",
+      "email": "mrexemple@exemple.com",
+      "password": "exemple.236"
+    }
+  ]
+}
