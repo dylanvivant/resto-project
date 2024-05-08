@@ -2,7 +2,7 @@
   <div class="container">
     <h1>NOIR NOSH</h1>
 
-    <h2>Sign Up</h2>
+    <h2>Connexion</h2>
     <div class="register">
       <input
         type="text"
@@ -23,7 +23,9 @@
         placeholder="Mot de passe"
       />
 
+      <button v-on:click="login">LogIn</button>
       <button v-on:click="signUp">Sign Up</button>
+      <p v-if="errorMessage">{{ errorMessage }}</p>
     </div>
   </div>
 </template>
@@ -37,19 +39,42 @@ export default {
       name: '',
       email: '',
       password: '',
+      errorMessage: '',
     };
   },
   methods: {
     async signUp() {
-      let result = await axios.post('http://localhost:3000/users', {
-        name: this.name,
+      try {
+        let result = await axios.post('http://localhost:3000/users', {
+          name: this.name,
+          email: this.email,
+          password: this.password,
+        });
+
+        console.warn(result);
+
+        if (result.status === 201) {
+          localStorage.setItem('user-info', JSON.stringify(result.data));
+          this.$router.push({ name: 'home' });
+        }
+      } catch (error) {
+        if (error.response && error.response.status === 409) {
+          this.errorMessage =
+            'This email is already registered. Please log in.';
+        } else {
+          this.errorMessage = 'An error occurred. Please try again.';
+        }
+      }
+    },
+    async login() {
+      let result = await axios.post('http://localhost:3000/users/login', {
         email: this.email,
         password: this.password,
       });
 
       console.warn(result);
 
-      if (result.status === 201) {
+      if (result.status === 200) {
         localStorage.setItem('user-info', JSON.stringify(result.data));
         this.$router.push({ name: 'home' });
       }
@@ -110,6 +135,7 @@ h2 {
   font-family: 'General Sans', sans-serif;
   cursor: pointer;
   transition: 0.3s all;
+  margin-bottom: 20px;
 }
 
 .register button:hover {

@@ -31,6 +31,12 @@
       "name": "MrExemple",
       "email": "mrexemple@exemple.com",
       "password": "exemple.236"
+    },
+    {
+      "id": "9ced",
+      "name": "MrExemple",
+      "email": "mrexemple@exemple.com",
+      "password": "exemple.236"
     }
   ]
 }
