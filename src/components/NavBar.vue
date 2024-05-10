@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="nav-container">
-      <h1>NOIR NOSH</h1>
+      <h2>NOIR NOSH</h2>
       <nav>
         <router-link to="/home" class="nav-link">Home</router-link>
         <router-link to="/ourmenu" class="nav-link">Our Menu</router-link>
@@ -43,6 +43,8 @@ export default {
 header {
   width: 100%;
   padding: 48px 140px;
+  max-width: 1792px;
+  margin: 0 auto;
 }
 .nav-container {
   display: flex;
@@ -50,7 +52,10 @@ header {
   align-items: center;
 }
 
-.nav-container h1 {
+.nav-container h2 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+
   margin: 0;
   font-size: 24px;
 }
@@ -58,7 +63,7 @@ header {
 .nav-container nav {
   display: flex;
   justify-content: space-between;
-  width: 15%;
+  width: 250px;
 }
 
 .nav-link {
